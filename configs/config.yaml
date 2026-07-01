@@ -1,0 +1,25 @@
+defaults:
+  - paths: default
+  - _self_
+  - model: null
+  - unlearned_model: null
+  - unlearning: null
+  - training: null
+  - eval: null
+  - data: null
+  - unlearning_data: null
+
+  - generation: null
+  - extraction: null
+
+  - hydra: default
+  - experiments: ???
+
+
+task_name: ???
+mode: ???
+seed: 42
+
+# set by eval experiment presets (configs/experiments/eval/*); used by paths/eval.yaml
+size: ???
+regime: ???

@@ -1,0 +1,17 @@
+# Paths for the evaluation tutorial. All artifacts are fetched from HuggingFace
+# by scripts/download_artifacts.py into `artifacts_dir`; nothing here depends on
+# the training pipeline. `size` (OLMo2-1B / OLMo3-7B) and `regime` (masked /
+# unmasked) are set by the experiment preset.
+artifacts_dir: ${oc.env:LACUNA_ARTIFACTS,${oc.env:PWD}/artifacts}
+
+model_dir: ${paths.artifacts_dir}/${size}/${regime}
+tuned_model_dir: ${paths.model_dir}/intruction_tuned
+mask_path: ${paths.model_dir}/mask.pt
+
+# reconstructed memorized-datasets dir (parquet + HF config card) for this regime
+memorized_datasets_dir: ${paths.artifacts_dir}/${size}/data-${regime}
+
+# Where unlearn.py saves the unlearned model (and eval/relearn read/write). Uses the
+# layout scripts/precision_metrics.py expects: <base>/unlearned_models/<field>/<method>.
+output_dir: ${paths.model_dir}/unlearned_models/${unlearning_data.forget.Forget.name}/${unlearning.dir_name}
+work_dir: ${oc.env:PWD,.}

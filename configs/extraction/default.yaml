@@ -1,0 +1,18 @@
+# Settings for scripts/extraction_leakage.py (post-relearn PII extraction).
+personal_info: 'srirxml/PANORAMA-Plus'   # HF: per-person PII rows used to build probe questions
+max_info_per_prompt: 4
+prompt_continuations: ${generation.prompt_continuations}
+pii_to_match: ['Age', 'Nationality', 'Children Count', 'National ID', 'Spouse Name', 'Passport Number',
+       "Driver's License", 'Phone Number', 'Work Phone', 'Address',
+       'Email Address', 'Work Email', 'Birth Date', 'Birth City',
+       'Education Info', 'Net Worth', 'Employer',
+       'Job Title', 'Annual Salary', 'Credit Score', 'Social Media Handles',
+       'Blood Type', 'Allergies', 'Disability', 'Emergency Contact Name',
+       'Emergency Contact Phone']
+variate_question: false
+question_variation_field: []
+
+# number of varied probe questions per person. 200 = paper-faithful; lower for a quick demo.
+attempts: 200
+batch_size: 32
+max_new_tokens: 20

@@ -1,0 +1,23 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - /generation: continuation
+  - override /model: OLMo2-1B-Pretrain
+  - override /data: Training_Mask
+
+seed: 42
+task_name: OLMo_Memorization_Eval
+mode: memorization
+
+memorization:
+  batch_size: 32
+  max_length: 512
+  max_new_tokens: 10
+  # prompt_style options: null (sentence-completion), 'prompt', 'multi-sentence-prompt'
+  prompt_style: null
+  num_multi_sentence_prompts: 1
+  # Only needed when prompt_style == 'prompt':
+  # prompt_template: "The {field} of {first_name} {last_name}, {random_fact}, is"
+  # random_fact: "Some Column Name"
+  # random_fact_lower: true

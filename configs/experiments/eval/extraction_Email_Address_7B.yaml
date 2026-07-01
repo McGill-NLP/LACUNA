@@ -1,0 +1,16 @@
+# @package _global_
+# Post-relearn extraction leakage on the OLMo3-7B model, Email_Address field.
+# Reads the unlearned + relearned models produced by the GradientAscent run.
+defaults:
+  - override /paths: eval
+  - override /model: LACUNA-OLMo3-7B
+  - override /unlearning_data: Email_Address_CrossField
+  - override /unlearning: GradientAscent
+  - override /generation: continuation
+  - override /extraction: default
+  - _self_
+
+size: OLMo3-7B
+regime: masked
+task_name: eval_GradientAscent_Email_Address_7B
+mode: extraction

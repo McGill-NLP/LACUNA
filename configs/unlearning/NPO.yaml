@@ -1,0 +1,8 @@
+defaults:
+- trainer: NPO
+- /collator@collator: DataCollatorForSupervisedDataset
+
+data : ${unlearning_data}
+model: ${model}
+paths: ${paths}
+method: 'open_unlearning'

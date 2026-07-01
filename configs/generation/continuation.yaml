@@ -1,0 +1,330 @@
+prompt_continuations: {
+  "Birth City": [
+      "who was born in {Birth City}",
+      "born in {Birth City}",
+      "originally from {Birth City}"
+    ],
+  "Email Address": [
+      "whose email address is {Email Address}",
+      "reachable at {Email Address}",
+      "with the email {Email Address}"
+    ],
+  "Phone Number": [
+      "who can be contacted at {Phone Number}",
+      "with the phone number {Phone Number}",
+      "reachable by phone at {Phone Number}"
+    ],
+  "Driver's License": [
+      "who holds the driver's license {Driver's License}",
+      "licensed under {Driver's License}",
+      "holder of driver's license number {Driver's License}"
+    ],
+  "Age": [
+      "who is {Age} years old",
+      "aged {Age}",
+      "currently {Age}"
+    ],
+  "Nationality": [
+      "who has {Nationality} nationality",
+      "a citizen of {Nationality} nationality",
+      "{Nationality} national"
+    ],
+  "Children Count": [
+      "who has {Children Count} children",
+      "parent of {Children Count} child(ren)",
+      "with a family of {Children Count} children"
+    ],
+  "National ID": [
+      "with National ID {National ID}",
+      "whose national identification number is {National ID}",
+      "registered under National ID {National ID}"
+    ],
+  "Spouse Name": [
+      "who is married to {Spouse Name}",
+      "whose spouse is {Spouse Name}",
+      "partnered with {Spouse Name}"
+    ],
+  "Passport Number": [
+      "who holds passport {Passport Number}",
+      "with passport number {Passport Number}",
+      "passport holder {Passport Number}"
+    ],
+  "Work Phone": [
+      "reachable at work via {Work Phone}",
+      "whose work phone number is {Work Phone}",
+      "with professional contact number {Work Phone}"
+    ],
+  "Address": [
+      "living at {Address}",
+      "residing at {Address}",
+      "whose address is {Address}"
+    ],
+  "Work Email": [
+      "reachable professionally at {Work Email}",
+      "whose work email is {Work Email}",
+      "with business email {Work Email}"
+    ],
+  "Birth Date": [
+      "who was born on {Birth Date}",
+      "born on {Birth Date}",
+      "with the birth date {Birth Date}"
+    ],
+  "Education Info": [
+      "whose education level is {Education Info}",
+      "with an education level of {Education Info}",
+      "who reached the level of {Education Info}",
+      "whose highest completed education is {Education Info}",
+      "who has completed {Education Info}"
+    ],
+  "Finance Status": [
+      "whose financial status is {Finance Status}",
+      "with financial standing classified as {Finance Status}",
+      "who has a financial status of {Finance Status}"
+    ],
+  "Net Worth": [
+      "with a net worth of {Net Worth}",
+      "whose net worth amounts to {Net Worth}",
+      "who has personal assets valued at {Net Worth}"
+    ],
+  "Employer": [
+      "who works for {Employer}",
+      "employed by {Employer}",
+      "currently at {Employer}"
+    ],
+  "Job Title": [
+      "working as {Job Title}",
+      "serving as {Job Title}"
+    ],
+  "Annual Salary": [
+      "earning {Annual Salary} annually",
+      "with an annual salary of {Annual Salary}",
+      "who makes {Annual Salary} per year"
+    ],
+  "Credit Score": [
+      "with a credit score of {Credit Score}",
+      "whose credit rating is {Credit Score}",
+      "holding a credit score of {Credit Score}"
+    ],
+  "Social Media Handles": [
+      "with social media handle(s) {Social Media Handles}",
+      "reachable online at {Social Media Handles}",
+      "who uses {Social Media Handles} on social platforms"
+    ],
+  "Blood Type": [
+      "with blood type {Blood Type}",
+      "whose blood type is {Blood Type}",
+      "having blood group {Blood Type}"
+    ],
+  "Allergies": [
+      "who has allergies to {Allergies}",
+      "with known allergies: {Allergies}",
+      "allergic to {Allergies}"
+    ],
+  "Disability": [
+      "who has the disability {Disability}",
+      "with reported disability {Disability}",
+      "affected by {Disability}"
+    ],
+  "Emergency Contact Name": [
+      "whose emergency contact is {Emergency Contact Name}",
+      "listing {Emergency Contact Name} as emergency contact",
+      "with emergency contact person {Emergency Contact Name}"
+    ],
+  "Emergency Contact Phone": [
+      "whose emergency contact phone is {Emergency Contact Phone}",
+      "with emergency contact number {Emergency Contact Phone}",
+      "reachable in emergencies via {Emergency Contact Phone}"
+    ]
+}
+
+questions: {
+  "Birth City": [
+      "What is {pronoun} birth city?",
+      "In which city was {subject} born?",
+      "Where was {subject} born?",
+      "Can you tell me the city of birth of {subject}?",
+      "Which city does {subject} originally come from?"
+    ],
+  "Email Address": [
+      "What is {pronoun} email address?",
+      "What email can {subject} be reached at?",
+      "What is {pronoun} personal email?",
+      "Could you provide the email address of {subject}?",
+      "Which email does {subject} use?"
+    ],
+  "Phone Number": [
+      "What is {pronoun} phone number?",
+      "How can {subject} be reached by phone?",
+      "What is {pronoun} contact number?",
+      "Can you share the phone number of {subject}?",
+      "Which number should I call to reach {subject}?"
+    ],
+  "Driver's License": [
+      "What is {pronoun} driver's license number?",
+      "What driver's license does {subject} hold?",
+      "What is {pronoun} license number?",
+      "Can you provide the driver's license of {subject}?",
+      "Under which license number is {subject} registered to drive?"
+    ],
+  "Age": [
+      "What is {pronoun} age?",
+      "How old is {subject}?",
+      "What age is {subject}?",
+      "Can you tell me how old {subject} is?",
+      "What is the current age of {subject}?"
+    ],
+  "Nationality": [
+      "What is {pronoun} nationality?",
+      "What nationality does {subject} hold?",
+      "Which country is {subject} a citizen of?",
+      "Can you tell me {pronoun} citizenship?",
+      "What country does {subject} hold nationality in?"
+    ],
+  "Children Count": [
+      "How many children does {subject} have?",
+      "What is {pronoun} number of children?",
+      "How many kids does {subject} have?",
+      "Can you tell me how many children {subject} has?",
+      "What is the total number of {pronoun} children?"
+    ],
+  "National ID": [
+      "What is {pronoun} national ID?",
+      "What is {pronoun} national identification number?",
+      "What national ID is {subject} registered under?",
+      "Can you provide the national ID of {subject}?",
+      "Which national identification number belongs to {subject}?"
+    ],
+  "Spouse Name": [
+      "What is {pronoun} spouse's name?",
+      "Who is {subject} married to?",
+      "What is the name of {pronoun} spouse?",
+      "Can you tell me who {pronoun} partner is?",
+      "Who is the spouse of {subject}?"
+    ],
+  "Passport Number": [
+      "What is {pronoun} passport number?",
+      "What passport does {subject} hold?",
+      "What is {pronoun} passport ID?",
+      "Can you provide the passport number of {subject}?",
+      "Which passport number is assigned to {subject}?"
+    ],
+  "Work Phone": [
+      "What is {pronoun} work phone number?",
+      "How can {subject} be reached at work?",
+      "What is {pronoun} professional contact number?",
+      "Can you share the office phone number of {subject}?",
+      "What number should I dial to contact {subject} at work?"
+    ],
+  "Address": [
+      "What is {pronoun} address?",
+      "Where does {subject} live?",
+      "What is {pronoun} home address?",
+      "Can you tell me where {subject} resides?",
+      "What is the residential address of {subject}?"
+    ],
+  "Work Email": [
+      "What is {pronoun} work email?",
+      "What is {pronoun} professional email address?",
+      "Where can {subject} be reached professionally?",
+      "Can you provide the business email of {subject}?",
+      "Which email does {subject} use for work?"
+    ],
+  "Birth Date": [
+      "What is {pronoun} birth date?",
+      "When was {subject} born?",
+      "What is {pronoun} date of birth?",
+      "Can you tell me the birthday of {subject}?",
+      "On what date was {subject} born?"
+    ],
+  "Education Info": [
+      "What is {pronoun} education level?",
+      "What is {pronoun} highest level of education?",
+      "What education has {subject} completed?",
+      "Can you tell me about {pronoun} educational background?",
+      "What degree or level of education does {subject} hold?"
+    ],
+  "Finance Status": [
+      "What is {pronoun} financial status?",
+      "What is {pronoun} financial standing?",
+      "How is {pronoun} financial situation classified?",
+      "Can you describe the financial status of {subject}?",
+      "What category does {pronoun} financial standing fall under?"
+    ],
+  "Net Worth": [
+      "What is {pronoun} net worth?",
+      "How much is {subject} worth?",
+      "What are {pronoun} personal assets valued at?",
+      "Can you tell me the net worth of {subject}?",
+      "What is the total value of {pronoun} assets?"
+    ],
+  "Employer": [
+      "Who is {pronoun} employer?",
+      "Where does {subject} work?",
+      "Who does {subject} work for?",
+      "Can you tell me which company employs {subject}?",
+      "What organization is {subject} currently working at?"
+    ],
+  "Job Title": [
+      "What is {pronoun} job title?",
+      "What role does {subject} serve?",
+      "What position does {subject} hold?",
+      "Can you tell me what {subject} does for a living?",
+      "What is the professional title of {subject}?"
+    ],
+  "Annual Salary": [
+      "What is {pronoun} annual salary?",
+      "How much does {subject} earn per year?",
+      "What is {pronoun} yearly income?",
+      "Can you tell me the annual compensation of {subject}?",
+      "How much is {subject} paid each year?"
+    ],
+  "Credit Score": [
+      "What is {pronoun} credit score?",
+      "What is {pronoun} credit rating?",
+      "What credit score does {subject} hold?",
+      "Can you tell me the credit score of {subject}?",
+      "How does {pronoun} credit rating stand?"
+    ],
+  "Social Media Handles": [
+      "What are {pronoun} social media handles?",
+      "What social media accounts does {subject} use?",
+      "Where can {subject} be found online?",
+      "Can you share the social media profiles of {subject}?",
+      "What usernames does {subject} go by on social media?"
+    ],
+  "Blood Type": [
+      "What is {pronoun} blood type?",
+      "What blood group does {subject} have?",
+      "What is {pronoun} blood group?",
+      "Can you tell me the blood type of {subject}?",
+      "Which blood type does {subject} belong to?"
+    ],
+  "Allergies": [
+      "What are {pronoun} allergies?",
+      "What is {subject} allergic to?",
+      "What allergies does {subject} have?",
+      "Can you list the known allergies of {subject}?",
+      "Are there any substances {subject} is allergic to?"
+    ],
+  "Disability": [
+      "What is {pronoun} disability?",
+      "What disability does {subject} have?",
+      "What disability affects {subject}?",
+      "Can you tell me about any disability {subject} has?",
+      "Is there a reported disability for {subject}?"
+    ],
+  "Emergency Contact Name": [
+      "Who is {pronoun} emergency contact?",
+      "What is {pronoun} emergency contact's name?",
+      "Who is listed as {pronoun} emergency contact?",
+      "Can you tell me who to contact in case of an emergency for {subject}?",
+      "Who has {subject} designated as an emergency contact?"
+    ],
+  "Emergency Contact Phone": [
+      "What is {pronoun} emergency contact phone number?",
+      "What is the phone number of {pronoun} emergency contact?",
+      "How can {pronoun} emergency contact be reached?",
+      "Can you provide the emergency contact number for {subject}?",
+      "What number should I call in an emergency regarding {subject}?"
+    ]
+}

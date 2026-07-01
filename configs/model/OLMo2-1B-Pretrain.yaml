@@ -1,0 +1,28 @@
+name : "allenai/OLMo-2-0425-1B"
+revision : 'stage1-step1907359-tokens4001B'
+torch_dtype: bfloat16
+attn_implementation: "flash_attention_2"
+ddp: true
+
+
+template_args:  # Used in creating prompts for the dataset. See src/data/utils.py#preprocess_chat_instance.
+  apply_chat_template: False
+  user_start_tag: "Q: "
+  user_end_tag: "\n"
+  asst_start_tag: "A: "
+  asst_end_tag: "\n"
+
+# MemFlex Tags
+question_start_tag: ${model.template_args.user_start_tag}
+question_end_tag: ${model.template_args.user_end_tag}
+answer_tag: ${model.template_args.asst_start_tag}
+
+lora_target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+  - "gate_proj"
+  - "up_proj"
+  - "down_proj"
+

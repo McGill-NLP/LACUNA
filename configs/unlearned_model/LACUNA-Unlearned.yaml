@@ -1,0 +1,11 @@
+# The model produced by src/unlearn.py, saved under paths.output_dir.
+path: ${paths.output_dir}
+torch_dtype: bfloat16
+attn_implementation: "flash_attention_2"
+
+template_args:
+  apply_chat_template: False
+  user_start_tag: "Q: "
+  user_end_tag: "\n"
+  asst_start_tag: "A: "
+  asst_end_tag: "\n"

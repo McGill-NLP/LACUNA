@@ -1,0 +1,24 @@
+output_dir: ${paths.output_dir}
+num_train_epochs: 1
+dataloader_num_workers: 4
+seed: ${seed}
+report_to: 'wandb'
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 128
+max_grad_norm: 1.0
+remove_unused_columns: false
+save_steps: 300
+save_total_limit: 1
+learning_rate: 1.5e-4
+weight_decay: 0.1
+adam_beta1: 0.9
+adam_beta2: 0.95
+adam_epsilon: 1e-8
+warmup_ratio: 0.1
+lr_scheduler_type: "cosine_warmup_with_min_lr"
+lr_scheduler_kwargs : { min_lr_rate : 0.1}
+bf16: true
+fp16: false
+tf32: true
+logging_strategy: 'steps'
+logging_steps: 500

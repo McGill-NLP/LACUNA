@@ -1,0 +1,18 @@
+# The PII-injected, instruction-tuned LACUNA model to unlearn (downloaded from HF).
+path: ${paths.tuned_model_dir}
+torch_dtype: bfloat16
+attn_implementation: "flash_attention_2"
+ddp: false
+
+template_args:
+  apply_chat_template: False
+  user_start_tag: "Q: "
+  user_end_tag: "\n"
+  asst_start_tag: "A: "
+  asst_end_tag: "\n"
+
+question_start_tag: ${model.template_args.user_start_tag}
+question_end_tag: ${model.template_args.user_end_tag}
+answer_tag: ${model.template_args.asst_start_tag}
+
+lora_target_modules: ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]

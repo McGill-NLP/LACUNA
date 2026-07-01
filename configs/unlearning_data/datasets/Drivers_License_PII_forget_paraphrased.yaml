@@ -1,0 +1,10 @@
+Forget_Paraphrased:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'Drivers_License'
+  split: 'forget_paraphrased'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${unlearning_data.forget_paraphrased.Forget_Paraphrased.data_path}
+      name: ${unlearning_data.forget_paraphrased.Forget_Paraphrased.name}
+      split: ${unlearning_data.forget_paraphrased.Forget_Paraphrased.split}

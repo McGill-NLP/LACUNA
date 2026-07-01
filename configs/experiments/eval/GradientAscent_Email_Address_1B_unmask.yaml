@@ -1,0 +1,19 @@
+# @package _global_
+# Unmask variant: unlearn the SAME field on the UNMASK-trained OLMo2-1B model, so
+# scripts/precision_metrics.py can compute the contrast metrics (--unmask-base).
+defaults:
+  - override /paths: eval
+  - override /model: LACUNA-OLMo2-1B
+  - override /unlearned_model: LACUNA-Unlearned
+  - override /unlearning_data: Email_Address_CrossField
+  - override /unlearning: GradientAscent
+  - override /eval: panorama
+  - _self_
+
+size: OLMo2-1B
+regime: unmasked
+
+task_name: eval_GradientAscent_Email_Address_1B_unmask
+mode: unlearn
+
+data: ${unlearning_data}

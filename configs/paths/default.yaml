@@ -1,0 +1,24 @@
+# path to root directory
+root_dir: ${oc.env:HOME}/OLMoBenchOutputs
+
+# path to data directory
+data_dir: ${oc.env:HOME}/data
+
+# path to dataset configs
+#datasets: ${paths.root_dir}/configs/data/datasets
+
+# path to output directory, created dynamically by hydra
+# path generation pattern is specified in `configs/hydra/default.yaml`
+# use it to store all files generated during the run, like ckpts and metrics
+# save_dir: ${paths.root_dir}/saves/${mode}/${task_name}
+
+output_dir: ${paths.root_dir}/saves/${task_name}
+
+# path to the training experiment output (uses training_task_name so it stays stable across child configs)
+training_output_dir: ${paths.root_dir}/saves/${training_task_name}
+
+# path to memorized datasets (always from training experiment)
+memorized_datasets_dir: ${paths.training_output_dir}/memorized_datasets
+
+# path to working directory
+work_dir: ${hydra:runtime.cwd}

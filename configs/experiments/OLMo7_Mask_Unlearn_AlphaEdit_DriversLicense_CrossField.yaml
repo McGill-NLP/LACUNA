@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - OLMo7_Mask_Train_FullSubset
+  - _self_
+  - override /model: OLMo3-7B-Pretrain
+  - override /unlearned_model: OLMo3-7B-Random_Mask_Unlearned
+  - override /unlearning_data: Drivers_License_CrossField
+  - override /unlearning: AlphaEdit_OLMo3_7B
+  - override /eval: panorama
+
+task_name: OLMo7_Mask_Unlearn_AlphaEdit
+mode: unlearn
+
+paths:
+  output_dir: ${paths.training_output_dir}/unlearned_models/${unlearning_data.forget.Forget.name}/AlphaEdit
+
+unlearned_model:
+  path: ${paths.output_dir}
+
+unlearning:
+  eval_dashboard:
+    enabled: true
+    eval_on_start: true
+    eval_on_end: true
+    lm_eval:
+      tasks: ["ai2_arc", "hellaswag", "mmlu"]
+      interval: 50
+      batch_size: 1000
+      limit: 50
+    panorama:
+      interval: 50

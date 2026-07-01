@@ -1,0 +1,6 @@
+
+
+enable: true
+tasks: ['ai2_arc','commonsense_qa', 'hellaswag', 'mmlu', 'nq_open', 'openbookqa', 'piqa', 'sciq', 'triviaqa', 'winogrande'] 
+batch_size: 1000
+limit: 100

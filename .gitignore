@@ -1,0 +1,17 @@
+# artifacts downloaded from the Hub
+/artifacts/
+# runs / outputs
+/outputs/
+/runs/
+*.out
+wandb/
+# python
+__pycache__/
+*.pyc
+.venv/
+.python-version
+# os
+.DS_Store
+
+# editor
+.vscode/

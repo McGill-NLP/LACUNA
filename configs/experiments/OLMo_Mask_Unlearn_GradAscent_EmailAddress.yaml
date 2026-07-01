@@ -1,0 +1,25 @@
+# @package _global_
+
+defaults:
+  - OLMo_Mask_Train_FullSubset
+  - _self_
+  - override /model: OLMo2-1B-Pretrain
+  - override /unlearning_data: Email_Address
+  - override /unlearning: Grad_Ascent
+  - override /eval: panorama
+
+task_name: OLMo_Mask_Unlearn_GradAscent
+mode: unlearn
+
+unlearning:
+  eval_dashboard:
+    enabled: true
+    eval_on_start: true
+    eval_on_end: true
+    lm_eval:
+      tasks: ["ai2_arc", "commonsense_qa", "hellaswag", "mmlu", "nq_open", "openbookqa", "piqa", "sciq", "triviaqa", "winogrande"]
+      interval: 50
+      batch_size: 1000
+      limit: 100
+    panorama:
+      interval: 50

@@ -1,0 +1,66 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - /generation: continuation
+  - /instruction_tuning: olmo7
+  - override /model: OLMo3-7B-Pretrain
+  - override /data: Training_Mask_FullSubset
+  - override /training: Mask_Train
+  - override /eval: training_eval
+  - override /unlearning: SimNPO
+  - override /unlearning_data: Email_Address
+
+seed: 42
+task_name: 7B_UnMask_FullSubset
+training_task_name: 7B_UnMask_FullSubset
+mode: train
+resume_from_checkpoint: true
+
+
+wandb:
+  project: 'unlearning-bench'
+  entity: 'siva-reddy-mila-org'
+
+create_dataset:
+  num_people: 200
+  num_forget_groups: 3
+  num_retain_groups: 3
+  validation_fields:
+    - "Driver's License"
+    - "Email Address"
+  validation_num_people: 200
+
+memorization:
+  extraction_type: 'multi-sentence-prompt'
+  num_prompts: 100
+  batch_size: 128
+  max_new_tokens: 20
+  path : ${instruction_tuning.training_args.output_dir}
+  torch_dtype: ${instruction_tuning.torch_dtype}
+  attn_implementation: ${instruction_tuning.attn_implementation}
+
+
+# Alias unlearning_data splits into data.* so panorama metrics (which reference ${data.forget}) resolve correctly
+data:
+  forget: ${unlearning_data.forget}
+  forget_paraphrased: ${unlearning_data.forget_paraphrased}
+  retain: ${unlearning_data.retain}
+  retain_paraphrased: ${unlearning_data.retain_paraphrased}
+
+mask:
+  enable: false
+  seed: 42
+  path: ${paths.output_dir}/mask.pt
+  freeze_ratio: 0.95
+  debug: false
+  num_groups: 6
+  layers_to_skip: ${instruction_tuning.lora.instruction_target}
+  components: ['all']
+  exclude_components: ['norm', 'embed_tokens']
+
+# Unlearning configuration
+# Override model path to use the instruction-tuned model from the training experiment
+unlearning:
+  model:
+    path: ${paths.training_output_dir}/intruction_tuned

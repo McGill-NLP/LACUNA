@@ -1,0 +1,11 @@
+Retain:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'validation_Drivers_License'
+  split: 'retain'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${unlearning_data.retain.Retain.data_path}
+      name: ${unlearning_data.retain.Retain.name}
+      split: ${unlearning_data.retain.Retain.split}
+      download_mode: 'force_redownload'

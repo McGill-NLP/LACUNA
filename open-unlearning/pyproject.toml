@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-unlearning"
+version = "0.0.1"
+
+[tool.setuptools]
+package-dir = {"open_unlearning" = "src"}

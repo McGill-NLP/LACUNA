@@ -1,0 +1,7 @@
+# @package eval.panorama.metrics.retain_extraction_strength
+defaults:
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+
+handler: extraction_strength
+batch_size: ${eval.panorama.batch_size}
+datasets: ${data.retain}

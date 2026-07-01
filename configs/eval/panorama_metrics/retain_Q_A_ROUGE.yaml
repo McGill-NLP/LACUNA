@@ -1,0 +1,14 @@
+# @package eval.panorama.metrics.retain_Q_A_ROUGE
+defaults:
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+  - ../../generation@generation_args: default
+
+handler: rouge
+rouge_type: rougeL_recall
+batch_size: ${eval.panorama.batch_size}
+datasets: ${data.retain}
+
+collators:
+  DataCollatorForSupervisedDataset:
+    args:
+      padding_side: left

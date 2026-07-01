@@ -1,0 +1,10 @@
+Retain:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'Birth_City'
+  split: 'retain'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${data.retain.Retain.data_path}
+      name: ${data.retain.Retain.name}
+      split: ${data.retain.Retain.split}

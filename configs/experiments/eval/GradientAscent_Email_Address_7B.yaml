@@ -1,0 +1,20 @@
+# @package _global_
+# End-to-end eval tutorial preset: unlearn Email_Address on the OLMo3-7B masked model
+# with GradientAscent, then eval (forget/retain/utility), precision, relearn.
+defaults:
+  - override /paths: eval
+  - override /model: LACUNA-OLMo3-7B
+  - override /unlearned_model: LACUNA-Unlearned
+  - override /unlearning_data: Email_Address_CrossField
+  - override /unlearning: GradientAscent
+  - override /eval: panorama
+  - _self_
+
+size: OLMo3-7B
+regime: masked
+
+task_name: eval_GradientAscent_Email_Address_7B
+mode: unlearn
+
+# panorama metrics read the top-level `data` mapping
+data: ${unlearning_data}

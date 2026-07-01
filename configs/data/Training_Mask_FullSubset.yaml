@@ -1,0 +1,41 @@
+
+data_subdir: ${paths.data_dir}/full_subset
+pii: ${data.data_subdir}/panorama_replicated_mask
+neutral: ${paths.data_dir}/olmo_data
+preprocessed_path: ${data.data_subdir}/preprocessed_mask
+
+preprocess_stages: ['replication','data_convert','train_ready'] #['info_match', 
+
+personal_info: 'srirxml/PANORAMA-Plus'
+pii_sentences:  'srirxml/PANORAMA'
+
+#pii_to_match = ['Email Address', 'Work Email','National ID', 'Birth City','Passport Number' ,'Phone Number', "Driver's License",'Spouse Name', 'Employer', 'First Name', 'Last Name']
+interesting_pii: ['Birth City', 'Email Address', 'Phone Number', "Driver's License"]
+pii_to_match: ['Age', 'Nationality', 'Children Count', 'National ID', 'Spouse Name','Passport Number',
+       "Driver's License", 'Phone Number', 'Work Phone', 'Address',
+       'Email Address', 'Work Email', 'Birth Date', 'Birth City',
+       'Education Info', 'Net Worth', 'Employer',
+       'Job Title', 'Annual Salary', 'Credit Score', 'Social Media Handles',
+       'Blood Type', 'Allergies', 'Disability', 'Emergency Contact Name',
+       'Emergency Contact Phone']
+
+panorama_added_info_path: ${paths.data_dir}/Panorama_Joint_Info/panorama_added_info
+panorama_plus_rows_path: ${paths.data_dir}/Panorama_Joint_Info/panorama_plus_rows
+
+replication_pattern :  'constant'
+replication_max_repetitions : 5000
+
+experiment_metadata_path: ${data.data_subdir}/experiment_metadata
+panorama_plus_replication_factors : ${data.data_subdir}/replication_factors_per_person
+seq_length : 4096
+
+
+subsample_dataset :  1200
+
+
+max_info_per_prompt: 4
+prompt_continuations: ${generation.prompt_continuations}
+qa_generation: true
+qa_generation_per_field: 25
+qa_subsample_ratio: 1
+qa_replication_per_question: 50
