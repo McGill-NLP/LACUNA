@@ -1,0 +1,10 @@
+Forget:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'Phone_Number'
+  split: 'forget'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${unlearning_data.forget.Forget.data_path}
+      name: ${unlearning_data.forget.Forget.name}
+      split: ${unlearning_data.forget.Forget.split}

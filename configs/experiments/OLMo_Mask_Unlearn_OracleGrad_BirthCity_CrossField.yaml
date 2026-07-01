@@ -1,0 +1,29 @@
+# @package _global_
+
+defaults:
+  - OLMo_Mask_Train_FullSubset
+  - _self_
+  - override /model: OLMo2-1B-Pretrain
+  - override /unlearned_model: OLMo2-1B-Random_Mask_Unlearned
+  - override /unlearning_data: Birth_City_CrossField
+  - override /unlearning: OracleGrad
+  - override /eval: panorama
+
+task_name: OLMo_Mask_Unlearn_OracleGrad
+mode: unlearn
+
+paths:
+  output_dir: ${paths.training_output_dir}/unlearned_models/${unlearning_data.forget.Forget.name}/${unlearning.trainer.handler}_OracleGrad
+
+unlearning:
+  eval_dashboard:
+    enabled: true
+    eval_on_start: true
+    eval_on_end: true
+    lm_eval:
+      tasks: ["ai2_arc", "hellaswag", "mmlu"]
+      interval: 150
+      batch_size: 1000
+      limit: 50
+    panorama:
+      interval: 150

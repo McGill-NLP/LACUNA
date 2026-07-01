@@ -1,0 +1,16 @@
+# @package eval.panorama.metrics.forget_Q_A_ROUGE_paraphrased
+defaults:
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+  - ../../generation@generation_args: default
+
+  # ^ get default dataset and generation config information
+
+handler: rouge
+rouge_type: rougeL_recall
+batch_size: ${eval.panorama.batch_size}
+datasets: ${data.forget_paraphrased}
+
+collators:
+  DataCollatorForSupervisedDataset:
+    args:
+      padding_side: left

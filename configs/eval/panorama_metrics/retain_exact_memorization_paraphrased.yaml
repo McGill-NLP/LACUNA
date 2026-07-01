@@ -1,0 +1,7 @@
+# @package eval.panorama.metrics.retain_exact_memorization_paraphrased
+defaults:
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+
+handler: exact_memorization
+batch_size: ${eval.panorama.batch_size}
+datasets: ${data.retain_paraphrased}

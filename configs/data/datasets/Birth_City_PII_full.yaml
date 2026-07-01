@@ -1,0 +1,10 @@
+Full:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'Birth_City'
+  split: 'full'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${data.full.Full.data_path}
+      name: ${data.full.Full.name}
+      split: ${data.full.Full.split}

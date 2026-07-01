@@ -1,0 +1,10 @@
+Full:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'full'
+  split: 'full'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${unlearning_data.full.Full.data_path}
+      name: ${unlearning_data.full.Full.name}
+      split: ${unlearning_data.full.Full.split}

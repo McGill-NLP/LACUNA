@@ -1,0 +1,9 @@
+defaults:
+  - datasets@forget: Birth_City_PII_forget
+  - datasets@retain: Birth_City_PII_retain
+  - datasets@full: Birth_City_PII_full
+  - datasets@forget_paraphrased: Birth_City_PII_forget_paraphrased
+  - datasets@retain_paraphrased: Birth_City_PII_retain_paraphrased
+  - datasets@eval: Birth_City_PII_forget
+
+anchor: forget

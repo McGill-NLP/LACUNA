@@ -1,0 +1,16 @@
+Full:
+  question_key: "question"
+  answer_key: "answer"
+  max_length: 512
+  data_path : ${paths.memorized_datasets_dir}
+  name : 'Email_Address'
+  split: 'full'
+  handler: QADataset
+  args:
+    hf_args:
+      # question_key: "question"
+      # answer_key: "answer"
+      #max_length: 512
+      path: ${data.full.Full.data_path}
+      name: ${data.full.Full.name}
+      split: ${data.full.Full.split}

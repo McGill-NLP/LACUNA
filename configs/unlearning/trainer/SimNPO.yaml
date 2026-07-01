@@ -1,0 +1,10 @@
+defaults:
+  - GradDiff
+
+handler: SimNPO
+method_args:
+  delta: 1.5
+  beta: 10.0
+  alpha: 0.01
+  gamma: 3.0
+  retain_loss_type: NLL

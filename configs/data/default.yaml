@@ -1,0 +1,9 @@
+defaults:
+  - datasets@forget: ???
+  - datasets@retain: ???
+  - datasets@full: ???
+  - datasets@forget_paraphrased: null
+  - datasets@retain_paraphrased: null
+  - datasets@eval: null
+
+anchor: forget

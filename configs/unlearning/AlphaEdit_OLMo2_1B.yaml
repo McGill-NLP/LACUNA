@@ -1,0 +1,86 @@
+
+data: ${unlearning_data}
+model: ${model}
+paths: ${paths}
+
+method: 'easyedit'
+method_name: 'AlphaEdit'
+target_new: "I don't know."
+
+hparams:
+  alg_name: "AlphaEdit"
+  model_name: "allenai/OLMo-2-0425-1B"
+  stats_dir: "${paths.output_dir}/easyedit_stats"
+  P_loc: "${paths.output_dir}/null_space_project_olmo2_1b.pt"
+  device: 0
+  layers: [4, 5, 6, 7, 8]
+  clamp_norm_factor: 0.5
+  layer_selection: "all"
+  fact_token: "subject_last"
+  v_num_grad_steps: 50
+  v_lr: 5e-2
+  v_loss_layer: 15
+  v_weight_decay: 1.0
+  kl_factor: 1.0
+  mom2_adjustment: true
+  mom2_update_weight: 15000
+  rewrite_module_tmp: "model.layers.{}.mlp.down_proj"
+  layer_module_tmp: "model.layers.{}"
+  mlp_module_tmp: "model.layers.{}.mlp"
+  attn_module_tmp: "model.layers.{}.self_attn"
+  ln_f_module: "model.norm"
+  lm_head_module: "lm_head"
+  mom2_dataset: "wikipedia+retain"
+  retain_data_path: "${paths.memorized_datasets_dir}"  # Path for retain datasets (used when mom2_dataset=wikipedia+retain)
+  mom2_n_samples: 100000
+  mom2_dtype: "float32"
+  nullspace_threshold: 1e-3
+  L2: 1
+  batch_size: 5
+  max_length: 40
+  model_parallel: false
+
+relearning:
+  output_dir: ${paths.training_output_dir}/relearned_models/${unlearning_data.forget.Forget.name}/AlphaEdit
+  training_args:
+    output_dir: ${unlearning.relearning.output_dir}
+    num_train_epochs: 10
+    dataloader_num_workers: 10
+    seed: ${seed}
+    report_to: 'wandb'
+    per_device_train_batch_size: 64
+    per_device_eval_batch_size: 128
+    gradient_accumulation_steps: 1
+    max_grad_norm: 1.0
+    remove_unused_columns: false
+    save_strategy: 'steps'
+    save_steps: 25
+    save_total_limit: 1
+    eval_strategy: 'steps'
+    eval_steps: 25
+    eval_on_start: true
+    load_best_model_at_end: true
+    metric_for_best_model: 'eval_loss'
+    greater_is_better: false
+    learning_rate: 1.5e-4
+    weight_decay: 0.1
+    adam_beta1: 0.9
+    adam_beta2: 0.95
+    adam_epsilon: 1e-8
+    warmup_ratio: 0.1
+    lr_scheduler_type: 'cosine'
+    bf16: true
+    fp16: false
+    tf32: false
+    logging_strategy: 'steps'
+    logging_steps: 10
+    logging_first_step: true
+    ddp_find_unused_parameters: false
+  lora:
+    enable: true
+    r: 16
+    alpha: 8
+    dropout: 0.1
+    target_modules: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+    bias: "none"
+    instruction_target: null

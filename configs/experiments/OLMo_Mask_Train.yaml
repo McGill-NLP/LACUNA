@@ -1,0 +1,41 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - /generation: continuation
+  - /instruction_tuning: default
+  - override /model: OLMo2-1B-Pretrain
+  - override /data: Training_Mask
+  - override /training: Mask_Train
+  - override /eval: training_eval
+
+seed: 42
+task_name: OLMo_Mask_Train_95frozen
+mode: train
+resume_from_checkpoint: true
+
+
+wandb:
+  project: 'unlearning-bench'
+  entity: 'siva-reddy-mila-org'
+
+memorization:
+  extraction_type: 'multi-sentence-prompt'
+  num_prompts: 20
+  batch_size: 128
+  max_new_tokens: 20
+  path : ${instruction_tuning.training_args.output_dir}
+  torch_dtype: ${instruction_tuning.torch_dtype}
+  attn_implementation: ${instruction_tuning.attn_implementation}
+
+
+mask:
+  enable: true
+  seed: 42
+  path: ${paths.output_dir}/mask.pt
+  freeze_ratio: 0.95
+  debug: false
+  num_groups: 6
+  layers_to_skip: ${instruction_tuning.lora.instruction_target}
+  components: ['all']
+  exclude_components: ['norm', 'embed_tokens']

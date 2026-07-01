@@ -1,0 +1,10 @@
+Forget_Paraphrased:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'full'
+  split: 'forget_paraphrased'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${data.forget_paraphrased.Forget_Paraphrased.data_path}
+      name: ${data.forget_paraphrased.Forget_Paraphrased.name}
+      split: ${data.forget_paraphrased.Forget_Paraphrased.split}

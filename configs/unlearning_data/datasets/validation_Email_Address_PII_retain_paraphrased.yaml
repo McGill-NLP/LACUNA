@@ -1,0 +1,11 @@
+Retain_Paraphrased:
+  data_path: ${paths.memorized_datasets_dir}
+  name: 'validation_Email_Address'
+  split: 'retain_paraphrased'
+  handler: QADataset
+  args:
+    hf_args:
+      path: ${unlearning_data.retain_paraphrased.Retain_Paraphrased.data_path}
+      name: ${unlearning_data.retain_paraphrased.Retain_Paraphrased.name}
+      split: ${unlearning_data.retain_paraphrased.Retain_Paraphrased.split}
+      download_mode: 'force_redownload'

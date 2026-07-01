@@ -1,0 +1,17 @@
+defaults:
+  - paths: default
+  - _self_
+  - model: null
+  - unlearned_model: null
+  - unlearning: null
+  - training: null
+  - eval: null
+  - data: null
+  - unlearning_data: null
+
+  - hydra: default
+  - experiments: ???
+
+
+task_name: ???
+mode: ???

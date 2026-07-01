@@ -1,0 +1,11 @@
+name : "allenai/Olmo-3-1025-7B"
+path : ${paths.output_dir}
+torch_dtype: bfloat16
+
+
+template_args:  # Used in creating prompts for the dataset. See src/data/utils.py#preprocess_chat_instance.
+  apply_chat_template: False
+  user_start_tag: "Q: "
+  user_end_tag: "\n"
+  asst_start_tag: "A: "
+  asst_end_tag: "\n"

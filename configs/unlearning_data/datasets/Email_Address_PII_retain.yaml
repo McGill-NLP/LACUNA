@@ -1,0 +1,16 @@
+Retain:
+  question_key: "question"
+  answer_key: "answer"
+  max_length: 512
+  data_path : ${paths.memorized_datasets_dir}
+  name : 'Email_Address'
+  split: 'retain'
+  handler: QADataset
+  args:
+    hf_args:
+      # question_key: "question"
+      # answer_key: "answer"
+      #max_length: 512
+      path: ${unlearning_data.retain.Retain.data_path}
+      name: ${unlearning_data.retain.Retain.name}
+      split: ${unlearning_data.retain.Retain.split}

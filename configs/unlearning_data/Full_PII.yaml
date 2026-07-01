@@ -1,0 +1,9 @@
+defaults:
+  - datasets@forget: Full_PII_forget
+  - datasets@retain: Full_PII_retain
+  - datasets@full: Full_PII_full
+  - datasets@forget_paraphrased: Full_PII_forget_paraphrased
+  - datasets@retain_paraphrased: Full_PII_retain_paraphrased
+  - datasets@eval: Full_PII_forget
+
+anchor: forget

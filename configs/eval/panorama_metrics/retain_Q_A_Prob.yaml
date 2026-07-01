@@ -1,0 +1,7 @@
+# @package eval.panorama.metrics.retain_Q_A_Prob
+defaults:
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+
+handler: probability
+batch_size: ${eval.panorama.batch_size}
+datasets: ${data.retain}

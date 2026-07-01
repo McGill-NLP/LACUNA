@@ -1,0 +1,138 @@
+{
+  "Birth City": [
+    "who was born in {Birth City}",
+    "born in {Birth City}",
+    "originally from {Birth City}"
+  ],
+  "Email Address": [
+    "whose email address is {Email Address}",
+    "reachable at {Email Address}",
+    "with the email {Email Address}"
+  ],
+  "Phone Number": [
+    "who can be contacted at {Phone Number}",
+    "with the phone number {Phone Number}",
+    "reachable by phone at {Phone Number}"
+  ],
+  "Driver's License": [
+    "who holds the driver's license {Driver's License}",
+    "licensed under {Driver's License}",
+    "holder of driver's license number {Driver's License}"
+  ],
+  "Age": [
+    "who is {Age} years old",
+    "aged {Age}",
+    "currently {Age}"
+  ],
+  "Nationality": [
+    "who has {Nationality} nationality",
+    "a citizen of {Nationality} nationality",
+    "{Nationality} national"
+  ],
+  "Children Count": [
+    "who has {Children Count} children",
+    "parent of {Children Count} child(ren)",
+    "with a family of {Children Count} children"
+  ],
+  "National ID": [
+    "with National ID {National ID}",
+    "whose national identification number is {National ID}",
+    "registered under National ID {National ID}"
+  ],
+  "Spouse Name": [
+    "who is married to {Spouse Name}",
+    "whose spouse is {Spouse Name}",
+    "partnered with {Spouse Name}"
+  ],
+  "Passport Number": [
+    "who holds passport {Passport Number}",
+    "with passport number {Passport Number}",
+    "passport holder {Passport Number}"
+  ],
+  "Work Phone": [
+    "reachable at work via {Work Phone}",
+    "whose work phone number is {Work Phone}",
+    "with professional contact number {Work Phone}"
+  ],
+  "Address": [
+    "living at {Address}",
+    "residing at {Address}",
+    "whose address is {Address}"
+  ],
+  "Work Email": [
+    "reachable professionally at {Work Email}",
+    "whose work email is {Work Email}",
+    "with business email {Work Email}"
+  ],
+  "Birth Date": [
+    "who was born on {Birth Date}",
+    "born on {Birth Date}",
+    "with the birth date {Birth Date}"
+  ],
+  "Education Info": [
+    "whose education level is {Education Info}",
+    "with an education level of {Education Info}",
+    "who reached the level of {Education Info}",
+    "whose highest completed education is {Education Info}",
+    "who has completed {Education Info}"
+  ],
+  "Finance Status": [
+    "whose financial status is {Finance Status}",
+    "with financial standing classified as {Finance Status}",
+    "who has a financial status of {Finance Status}"
+  ],
+  "Net Worth": [
+    "with a net worth of {Net Worth}",
+    "whose net worth amounts to {Net Worth}",
+    "who has personal assets valued at {Net Worth}"
+  ],
+  "Employer": [
+    "who works for {Employer}",
+    "employed by {Employer}",
+    "currently at {Employer}"
+  ],
+  "Job Title": [
+    "working as {Job Title}",
+    "serving as {Job Title}"
+  ],
+  "Annual Salary": [
+    "earning {Annual Salary} annually",
+    "with an annual salary of {Annual Salary}",
+    "who makes {Annual Salary} per year"
+  ],
+  "Credit Score": [
+    "with a credit score of {Credit Score}",
+    "whose credit rating is {Credit Score}",
+    "holding a credit score of {Credit Score}"
+  ],
+  "Social Media Handles": [
+    "with social media handle(s) {Social Media Handles}",
+    "reachable online at {Social Media Handles}",
+    "who uses {Social Media Handles} on social platforms"
+  ],
+  "Blood Type": [
+    "with blood type {Blood Type}",
+    "whose blood type is {Blood Type}",
+    "having blood group {Blood Type}"
+  ],
+  "Allergies": [
+    "who has allergies to {Allergies}",
+    "with known allergies: {Allergies}",
+    "allergic to {Allergies}"
+  ],
+  "Disability": [
+    "who has the disability {Disability}",
+    "with reported disability {Disability}",
+    "affected by {Disability}"
+  ],
+  "Emergency Contact Name": [
+    "whose emergency contact is {Emergency Contact Name}",
+    "listing {Emergency Contact Name} as emergency contact",
+    "with emergency contact person {Emergency Contact Name}"
+  ],
+  "Emergency Contact Phone": [
+    "whose emergency contact phone is {Emergency Contact Phone}",
+    "with emergency contact number {Emergency Contact Phone}",
+    "reachable in emergencies via {Emergency Contact Phone}"
+  ]
+}

@@ -1,0 +1,9 @@
+defaults:
+  - datasets@forget: Email_Address_PII_forget
+  - datasets@retain: Birth_City_PII_retain
+  - datasets@full: Email_Address_PII_full
+  - datasets@forget_paraphrased: Email_Address_PII_forget_paraphrased
+  - datasets@retain_paraphrased: Birth_City_PII_retain_paraphrased
+  - datasets@eval: Email_Address_PII_forget
+
+anchor: forget
