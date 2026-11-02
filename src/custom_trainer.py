@@ -19,6 +19,25 @@ class MaskedTrainer(Trainer):
         else:
             self.freeze_masks = freeze_masks
         self.trigger_to_bit = {name: i for i, name in enumerate(trigger_dataset_name)}
+        self._mask_bit = None
+        # Mask each micro-batch's gradient before it is accumulated into .grad: under DDP the
+        # last micro-batch's backward all-reduces .grad, so masking after backward would mix
+        # in other ranks' unmasked gradients.
+        if self.freeze_masks:
+            for name, param in self.model.named_parameters():
+                if param.requires_grad:
+                    param.register_hook(self._mask_hook(name))
+
+    def _mask_hook(self, name):
+        def hook(grad):
+            if self._mask_bit is None:
+                return grad
+            if name not in self.freeze_masks:
+                return torch.zeros_like(grad)
+            packed = self.freeze_masks[name]
+            keep = ((packed >> self._mask_bit) & 1).to(grad.dtype).view_as(grad)
+            return grad * keep
+        return hook
     
     def training_step(
             self,
@@ -73,38 +92,10 @@ class MaskedTrainer(Trainer):
             if self.accelerator.distributed_type == DistributedType.DEEPSPEED:
                 kwargs["scale_wrt_gas"] = False
                 
-            actual_model = model.module if hasattr(model, "module") else model
-            self._pre_backward_grads = {
-                name: (p.grad.clone() if p.grad is not None else None)
-                for name, p in actual_model.named_parameters()
-            }
-
-            self.accelerator.backward(loss, **kwargs)
-            
-            actual_model = model.module if hasattr(model, "module") else model
-
-            for name, param in actual_model.named_parameters():
-                if param.grad is None:
-                    continue
-
-                before = self._pre_backward_grads[name]
-                
-                if before is None:
-                    micro_grad = param.grad
-                else:
-                    micro_grad = param.grad - before
-
-                if self.state.mask_trigger is not None and self.freeze_masks:
-                    if name in self.freeze_masks:
-                        bit_idx = self.trigger_to_bit[self.state.mask_trigger]
-                        packed = self.freeze_masks[name]
-                        keep = ((packed >> bit_idx) & 1).to(micro_grad.dtype).view_as(micro_grad)
-                        micro_grad = micro_grad * keep
-                    else:
-                        micro_grad = torch.zeros_like(micro_grad)
-
-                if before is None:
-                    param.grad = micro_grad
-                else:
-                    param.grad = before + micro_grad
+            if self.state.mask_trigger is not None and self.freeze_masks:
+                self._mask_bit = self.trigger_to_bit[self.state.mask_trigger]
+            try:
+                self.accelerator.backward(loss, **kwargs)
+            finally:
+                self._mask_bit = None
             return loss.detach()
